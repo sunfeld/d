@@ -4,7 +4,7 @@ var app = express();
 
 app.use(
   cors({
-    origin: 'https://dumpert.nl',
+    origin: 'https://www.dumpert.nl',
   })
 );
 
