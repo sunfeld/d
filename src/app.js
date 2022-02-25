@@ -1,5 +1,6 @@
 var express = require('express');
 const cors = require('cors');
+const axios = require('axios');
 var app = express();
 
 app.use(
@@ -11,6 +12,17 @@ app.use(
 
 app.get('/mobile_api/json/login', (req, res) => {
   res.json({ gentime: 1, success: true });
+});
+
+app.get('/mobile_api/json/viewed/:id/', (req, res) => {
+  res.json({ gentime: 1, success: true });
+});
+
+app.get('/mobile_api/json/info/:id/', (req, res) => {
+  axios.get(`https://api-live.dumpert.nl/mobile_api/json/info/${req.params.id}`).then((r) => {
+    console.log(r.data);
+  });
+  res.json(r.data);
 });
 
 app.get('/api/v1.1/user/articles/*', (req, res) => {

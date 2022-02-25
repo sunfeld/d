@@ -11,6 +11,7 @@
   "author": "Jeroen Niet Doen",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.26.0",
     "cors": "^2.8.5",
     "dotenv": "^2.0.0",
     "express": "^4.15.2"
