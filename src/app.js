@@ -72,7 +72,7 @@ app.get('/api/v1.1/user/articles/*', (req, res) => {
         canComment: true,
         isPremium: true,
         isLoggedIn: true,
-        isAdmin: true,
+        isAdmin: false,
         isModerator: false,
         lastVisited: null,
         lastVisitCommentCount: null,
