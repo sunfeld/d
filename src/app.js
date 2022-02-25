@@ -20,6 +20,10 @@ app.get('/mobile_api/json/viewed/:id/', (req, res) => {
 
 app.get('/mobile_api/json/info/:id/', (req, res) => {
   axios.get(`https://api-live.dumpert.nl/mobile_api/json/info/${req.params.id}`).then((r) => {
+    r.data.items = r.data.items.map((i) => {
+      i.nsfw = false;
+      return i;
+    });
     res.json(r.data);
   });
 });
@@ -30,7 +34,7 @@ app.get('/mobile_api/json/related/:id/', (req, res) => {
   });
 });
 
-app.get('/api/v1.1/articles/:id/:hash/comments/*', (req, res) => {
+app.get('/api/v1.1/articles/:id/:hash/comments/', (req, res) => {
   axios.get(`https://comments.dumpert.nl/api/v1.1/articles/${req.params.id}/${req.params.hash}/comments/?includeitems=1`).then((r) => {
     res.json(r.data);
   });
