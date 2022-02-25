@@ -25,6 +25,13 @@ app.get('/mobile_api/json/info/:id/', (req, res) => {
   res.json(r.data);
 });
 
+app.get('/mobile_api/json/related/:id/', (req, res) => {
+  axios.get(`https://api-live.dumpert.nl/mobile_api/json/related/${req.params.id}`).then((r) => {
+    console.log(r.data);
+  });
+  res.json(r.data);
+});
+
 app.get('/api/v1.1/user/articles/*', (req, res) => {
   res.json({
     data: {
