@@ -30,6 +30,12 @@ app.get('/mobile_api/json/related/:id/', (req, res) => {
   });
 });
 
+app.get('/api/v1.1/articles/:id/:hash/comments/?includeitems=1', (req, res) => {
+  axios.get(`https://comments.dumpert.nl/api/v1.1/articles/${req.params.id}/${req.params.hash}/comments/?includeitems=1`).then((r) => {
+    res.json(r.data);
+  });
+});
+
 app.get('/api/v1.1/user/articles/*', (req, res) => {
   res.json({
     data: {
