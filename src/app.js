@@ -34,6 +34,24 @@ app.get('/mobile_api/json/related/:id/', (req, res) => {
   });
 });
 
+app.get('/mobile_api/json/latest/:p/', (req, res) => {
+  axios.get(`https://api-live.dumpert.nl/mobile_api/json/latest/${req.params.p}/`).then((r) => {
+    res.json(r.data);
+  });
+});
+
+app.get('/mobile_api/json/toppers/:p/', (req, res) => {
+  axios.get(`https://api-live.dumpert.nl/mobile_api/json/toppers/${req.params.p}/`).then((r) => {
+    res.json(r.data);
+  });
+});
+
+app.get('/mobile_api/json/dumperttv/:p/', (req, res) => {
+  axios.get(`https://api-live.dumpert.nl/mobile_api/json/dumperttv/${req.params.p}/`).then((r) => {
+    res.json(r.data);
+  });
+});
+
 app.get('/json/latest/:p/', (req, res) => {
   axios.get(`https://api-live.dumpert.nl/json/latest/${req.params.p}/`).then((r) => {
     res.json(r.data);
