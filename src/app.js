@@ -1,6 +1,7 @@
 var express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const qs = require('qs');
 var app = express();
 
 app.use(
@@ -24,6 +25,12 @@ app.get('/mobile_api/json/info/:id/', (req, res) => {
       i.nsfw = false;
       return i;
     });
+    res.json(r.data);
+  });
+});
+
+app.get('/mobile_api/json/:tag/:p', (req, res) => {
+  axios.get(`https://api-live.dumpert.nl/mobile_api/json/${req.params.tag}/${req.params.p}?${qs.stringify(req.query)}`).then((r) => {
     res.json(r.data);
   });
 });
